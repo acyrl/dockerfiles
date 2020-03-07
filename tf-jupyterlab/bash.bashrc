@@ -1,17 +1,14 @@
-export PS1="\[\e[31m\]for.ai\[\e[m\] \[\e[33m\]\w\[\e[m\] > "
+#export PS1="\[\e[31m\] PS1stuff    \[\e[m\] \[\e[33m\]\w\[\e[m\] > "
 export TERM=xterm-256color
 alias grep="grep --color=auto"
 alias ls="ls --color=auto"
 
 echo -e "\e[1;34m"
-cat<<FORAI
-██████╗ ███████╗
-██╔══██╗██╔════╝
-██████╔╝█████╗  
-██╔══██╗██╔══╝  
-██████╔╝███████╗
-╚═════╝ ╚══════╝
-FORAI
+cat<<ASCIIART
+
+
+
+ASCIIART
 echo -e "\e[1;92m"
 cat<<TF
 $(pip freeze | grep tensorflow-gpu)
