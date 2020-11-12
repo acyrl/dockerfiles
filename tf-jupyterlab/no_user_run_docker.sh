@@ -8,15 +8,14 @@ else
 fi
 
 docker run --gpus '"device=1"' -u $(id -u):$(id -g) \
-		   -w /home/$(whoami)/ \
-	       -v /home/$(whoami):/home/$(whoami) \
+		   -w /scratch/ \
 	       -v /scratch:/scratch \
-		   -v /etc/passwd:/etc/passwd:ro \
-		   -v /etc/group:/etc/group:ro \
 		   -e TF_FORCE_GPU_ALLOW_GROWTH=true \
 		   --rm -it \
 		   -p 8888:8888 \
 			workbench/tf-lab:2.1 $command
 
+#		   -w /home/$(whoami)/ \
+#	       -v /home/$(whoami):/home/$(whoami) \
 
 # -v /home/$(whoami)/.keras:/tmp/.keras
