@@ -1,5 +1,5 @@
 #FROM nvidia/cudagl:10.2-runtime-ubuntu18.04
-FROM tensorflow/tensorflow:2.4.2-gpu-jupyter
+FROM tensorflow/tensorflow:2.5.0-gpu-jupyter
 #FROM tf/tfgl:2.4.1
 
 
@@ -24,12 +24,19 @@ RUN python3 -m pip install \
 	pytest-cov \
 	jupyterlab
 
-RUN pip install --upgrade pip
-RUN pip install --upgrade jax jaxlib==0.1.65+cuda110 \
-    -f https://storage.googleapis.com/jax-releases/jax_releases.html
+#RUN pip install --upgrade pip
+RUN python3 -m pip install --upgrade "jax[cuda111]" \
+     -f https://storage.googleapis.com/jax-releases/jax_releases.html
+# RUN pip install --upgrade jax jaxlib==0.1.65+cuda110 \
+#    -f https://storage.googleapis.com/jax-releases/jax_releases.html
 
-RUN pip install git+https://github.com/deepmind/dm-haiku
+RUN python3 -m pip install git+https://github.com/deepmind/dm-haiku
 
-RUN pip install rlax optax distrax 
+RUN python3 -m pip install --upgrade tensorflow-probability
+RUN python3 -m pip install rlax optax distrax 
+RUN python3 -m pip install flax
+RUN python3 -m pip install tensorflow-datasets
+#RUN python3 -m pip install jedi
+
 
 COPY bash.bashrc /etc/
