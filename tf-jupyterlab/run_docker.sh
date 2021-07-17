@@ -15,8 +15,9 @@ docker run --gpus '"device=1"' -u $(id -u):$(id -g) \
 		   -v /etc/group:/etc/group:ro \
 		   -e TF_FORCE_GPU_ALLOW_GROWTH=true \
 		   --rm -it \
-		   -p 8888:8888 \
-			workbench/tf-lab:2.1 $command
+		   -p 8889:8888 \
+			workbench/tf-lab:latest $command
 
+ 
 
 # -v /home/$(whoami)/.keras:/tmp/.keras

@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:2.1.0-gpu-py3-jupyter
+FROM tensorflow/tensorflow:2.5.0-gpu-jupyter
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -19,5 +19,7 @@ RUN python3 -m pip install \
 	pytest \
 	pytest-cov \
 	jupyterlab
+
+RUN python3 -m pip install tensorflow-datasets
 
 COPY bash.bashrc /etc/
