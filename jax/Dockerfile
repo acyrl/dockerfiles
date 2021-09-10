@@ -37,6 +37,6 @@ RUN python3 -m pip install rlax optax distrax
 RUN python3 -m pip install flax
 RUN python3 -m pip install tensorflow-datasets
 #RUN python3 -m pip install jedi
-
+RUN python3 -m pip install ipympl
 
 COPY bash.bashrc /etc/
